@@ -10,7 +10,9 @@ const MyOrders = () => {
 
   // fetch data to load page count
   useEffect(() => {
-    fetch(`http://localhost:3001/orders/${email}`).then((res) =>
+    fetch(
+      `https://frightening-mansion-85633.herokuapp.com/orders/${email}`
+    ).then((res) =>
       res.json().then((data) => {
         setorders(data);
       })
@@ -22,7 +24,7 @@ const MyOrders = () => {
       "Are you sure you want to cancel this order?"
     );
     if (process) {
-      fetch(`http://localhost:3001/orders/${id}`, {
+      fetch(`https://frightening-mansion-85633.herokuapp.com/orders/${id}`, {
         method: "delete",
         headers: {
           "content-type": "Application/json",

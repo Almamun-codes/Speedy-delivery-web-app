@@ -11,14 +11,15 @@ const ManageAll = () => {
 
   // fetch data to load page count
   useEffect(() => {
-    fetch(`http://localhost:3001/orders?page=${page}&&size=${size}`).then(
-      (res) =>
-        res.json().then((data) => {
-          setorders(data.orders);
-          setTotalOrders(data.count);
-          const pages = Math.ceil(data.count / size);
-          setCount(pages);
-        })
+    fetch(
+      `https://frightening-mansion-85633.herokuapp.com/orders?page=${page}&&size=${size}`
+    ).then((res) =>
+      res.json().then((data) => {
+        setorders(data.orders);
+        setTotalOrders(data.count);
+        const pages = Math.ceil(data.count / size);
+        setCount(pages);
+      })
     );
   }, [page]);
 
@@ -37,7 +38,7 @@ const ManageAll = () => {
       updatedOrder.status = "Approved";
       setOrder(updatedOrder);
 
-      fetch(`http://localhost:3001/orders/${id}`, {
+      fetch(`https://frightening-mansion-85633.herokuapp.com/orders/${id}`, {
         method: "put",
         headers: {
           "content-type": "Application/json",
@@ -61,7 +62,7 @@ const ManageAll = () => {
       "Are you sure you want to cancel this order?"
     );
     if (process) {
-      fetch(`http://localhost:3001/orders/${id}`, {
+      fetch(`https://frightening-mansion-85633.herokuapp.com/orders/${id}`, {
         method: "delete",
         headers: {
           "content-type": "Application/json",

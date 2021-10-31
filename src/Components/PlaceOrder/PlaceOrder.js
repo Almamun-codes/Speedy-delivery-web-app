@@ -12,7 +12,7 @@ const PlaceOrder = () => {
   const destinationRef = useRef();
 
   useEffect(() => {
-    fetch(`http://localhost:3001/services/${id}`)
+    fetch(`https://frightening-mansion-85633.herokuapp.com/services/${id}`)
       .then((res) => res.json())
       .then((data) => setService(data));
   }, []);
@@ -32,7 +32,7 @@ const PlaceOrder = () => {
       status: "Pending",
     };
 
-    fetch("http://localhost:3001/place-order", {
+    fetch("https://frightening-mansion-85633.herokuapp.com/place-order", {
       method: "post",
       headers: {
         "content-type": "application/json",

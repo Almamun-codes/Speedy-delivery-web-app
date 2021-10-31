@@ -14,7 +14,7 @@ const AddService = () => {
       charge: chargeref.current.value,
     };
 
-    fetch("http://localhost:3001/add-a-service", {
+    fetch("https://frightening-mansion-85633.herokuapp.com/add-a-service", {
       method: "POST",
       headers: {
         "content-type": "application/json",

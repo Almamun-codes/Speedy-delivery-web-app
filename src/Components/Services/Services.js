@@ -11,13 +11,14 @@ const Services = () => {
 
   // fetch data to load page count
   useEffect(() => {
-    fetch(`http://localhost:3001/services?page=${page}&&size=${size}`).then(
-      (res) =>
-        res.json().then((data) => {
-          setServices(data.services);
-          const pages = Math.ceil(data.count / size);
-          setCount(pages);
-        })
+    fetch(
+      `https://frightening-mansion-85633.herokuapp.com/services?page=${page}&&size=${size}`
+    ).then((res) =>
+      res.json().then((data) => {
+        setServices(data.services);
+        const pages = Math.ceil(data.count / size);
+        setCount(pages);
+      })
     );
   }, [page]);
   return (
